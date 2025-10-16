@@ -1,0 +1,87 @@
+{
+    "version": "1.0.0",
+    "variants": [
+        "bookworm",
+        "bullseye"
+    ],
+    "build": {
+        "latest": "bookworm",
+        "rootDistro": "debian",
+        "architectures": {
+            "bookworm": [
+                "linux/amd64",
+                "linux/arm64"
+            ],
+            "bullseye": [
+                "linux/amd64",
+                "linux/arm64"
+            ]
+        },
+        "tags": [
+            "system-monitor:${VERSION}-${VARIANT}"
+        ],
+        "variantTags": {
+            "bookworm": [
+                "system-monitor:${VERSION}",
+                "system-monitor:${VERSION}-bookworm"
+            ],
+            "bullseye": [
+                "system-monitor:${VERSION}-bullseye"
+            ]
+        }
+    },
+    "dependencies": {
+        "image": "debian:${VARIANT}",
+        "imageLink": "https://hub.docker.com/_/debian",
+        "apt": [
+            {
+                "cgIgnore": false,
+                "name": "htop"
+            },
+            {
+                "cgIgnore": false,
+                "name": "btop"
+            },
+            {
+                "cgIgnore": false,
+                "name": "glances"
+            },
+            {
+                "cgIgnore": false,
+                "name": "sysstat"
+            },
+            {
+                "cgIgnore": false,
+                "name": "iotop"
+            },
+            {
+                "cgIgnore": false,
+                "name": "iftop"
+            },
+            {
+                "cgIgnore": false,
+                "name": "nethogs"
+            },
+            {
+                "cgIgnore": false,
+                "name": "nmon"
+            },
+            {
+                "cgIgnore": false,
+                "name": "atop"
+            },
+            {
+                "cgIgnore": false,
+                "name": "dstat"
+            }
+        ],
+        "pip": [
+            "psutil",
+            "py-cpuinfo",
+            "gpustat"
+        ],
+        "other": {
+            "git": {}
+        }
+    }
+}

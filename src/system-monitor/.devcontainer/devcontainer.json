@@ -1,0 +1,50 @@
+{
+    "name": "System Monitor",
+    "build": {
+        "dockerfile": "./Dockerfile",
+        "context": ".",
+        "args": {
+            "VARIANT": "bookworm"
+        }
+    },
+    "features": {
+        "ghcr.io/devcontainers/features/common-utils:2": {
+            "installZsh": "true",
+            "username": "vscode",
+            "userUid": "1000",
+            "userGid": "1000",
+            "upgradePackages": "true"
+        },
+        "ghcr.io/devcontainers/features/git:1": {
+            "version": "latest",
+            "ppa": "false"
+        }
+    },
+    // Configure tool-specific properties.
+    "customizations": {
+        // Configure properties specific to VS Code.
+        "vscode": {
+            // Set *default* container specific settings.json values on container create.
+            "settings": {},
+            "extensions": []
+        }
+    },
+    // Add capabilities for system monitoring
+    "capAdd": [
+        "SYS_PTRACE",
+        "NET_ADMIN",
+        "SYS_ADMIN"
+    ],
+    "securityOpt": [
+        "apparmor:unconfined"
+    ],
+    // Mount host resources for monitoring
+    "mounts": [
+        "source=/proc,target=/host/proc,type=bind,readonly",
+        "source=/sys,target=/host/sys,type=bind,readonly"
+    ],
+    // Use 'postCreateCommand' to run commands after the container is created.
+    // "postCreateCommand": "",
+    // Set `remoteUser` to `root` to connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
+    "remoteUser": "vscode"
+}
