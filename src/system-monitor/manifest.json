@@ -75,11 +75,7 @@
                 "name": "dstat"
             }
         ],
-        "pip": [
-            "psutil",
-            "py-cpuinfo",
-            "gpustat"
-        ],
+        "pip": [],
         "other": {
             "git": {}
         }

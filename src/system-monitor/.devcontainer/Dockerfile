@@ -49,12 +49,9 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
     python3-pip \
     && apt-get autoremove -y && apt-get clean -y && rm -rf /var/lib/apt/lists/*
 
-# Install Python-based monitoring tools
-RUN pip3 --disable-pip-version-check --no-cache-dir install \
-    psutil \
-    py-cpuinfo \
-    gpustat \
-    && rm -rf /root/.cache/pip
+# Install Python-based monitoring tools (psutil is already available from system packages)
+# Note: Additional Python monitoring packages can be installed with:
+# pip3 --disable-pip-version-check --no-cache-dir install --break-system-packages py-cpuinfo gpustat
 
 # Create a non-root user
 ARG USERNAME=vscode

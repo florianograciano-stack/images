@@ -14,7 +14,6 @@ This development container includes a comprehensive set of system monitoring too
 ### System Statistics
 - **sysstat** - Collection of performance monitoring tools (sar, iostat, mpstat, pidstat)
 - **dstat** - Versatile resource statistics tool
-- **psutil** (Python) - Cross-platform process and system utilities
 
 ### I/O and Disk Monitoring
 - **iotop** - I/O monitoring per process
@@ -32,6 +31,7 @@ This development container includes a comprehensive set of system monitoring too
 - **lsof** - List open files
 - **strace** - System call tracer
 - **perf** - Performance analysis tools
+- **psutil** (Python) - System and process monitoring library (installed via apt)
 
 ## Usage
 
